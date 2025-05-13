@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Button from "./ui/Button";
+import BookingModal from "./modals/BookingModal";
 
 const navigationLinks = [
   { 
@@ -35,6 +36,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
 
   useEffect(() => {
     const getActiveSectionFromHash = () => {
@@ -131,6 +133,11 @@ const Navbar = () => {
     }
   };
 
+  const handleOpenBookingModal = () => {
+    setIsBookingModalOpen(true);
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <nav 
       className={`fixed w-full z-50 top-0 start-0 transition-all duration-300 ease-in-out
@@ -210,14 +217,21 @@ const Navbar = () => {
           </ul>
           
           <div className="md:ml-6 mt-2 md:mt-0 flex flex-col md:flex-row items-center px-6 pb-6 md:p-0">
-            <Link href="#booking" className="w-full md:w-auto">
-              <Button variant="primary" size="md" className="w-full md:w-auto">
-                Réserver
-              </Button>
-            </Link>
+            <Button 
+              variant="primary" 
+              size="md" 
+              className="w-full md:w-auto"
+              onClick={handleOpenBookingModal}
+            >
+              Réserver
+            </Button>
           </div>
         </div>
       </div>
+      <BookingModal 
+        isOpen={isBookingModalOpen} 
+        onClose={() => setIsBookingModalOpen(false)} 
+      />
     </nav>
   );
 };

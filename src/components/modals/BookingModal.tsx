@@ -188,11 +188,11 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
             exit={{ scale: 0.95, opacity: 0 }}
             className="bg-white rounded-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto"
           >
-            <div className="p-6">
+            <div className="p-4 sm:p-6">
               {!isSuccess ? (
                 <>
                   <div className="flex justify-between items-center mb-6">
-                    <h2 id="booking-modal-title" className="text-2xl font-bold font-poppins">
+                    <h2 id="booking-modal-title" className="text-xl sm:text-2xl font-bold font-poppins">
                       Réserver votre trajet
                     </h2>
                     <button
@@ -200,22 +200,22 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                       className="p-2 hover:bg-gray-100 rounded-full transition-colors"
                       aria-label="Fermer"
                     >
-                      <FaTimes className="w-5 h-5" />
+                      <FaTimes className="w-6 h-6" />
                     </button>
                   </div>
 
                   {/* Progress Steps */}
                   <div className="flex items-center justify-center mb-8">
                     <div className="flex items-center">
-                      <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                      <div className={`w-10 h-10 rounded-full flex items-center justify-center text-lg ${
                         step >= 1 ? "bg-orange-500 text-white" : "bg-gray-200 text-gray-600"
                       }`}>
                         1
                       </div>
-                      <div className={`w-16 h-1 ${
+                      <div className={`w-20 h-1 ${
                         step >= 2 ? "bg-orange-500" : "bg-gray-200"
                       }`} />
-                      <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                      <div className={`w-10 h-10 rounded-full flex items-center justify-center text-lg ${
                         step >= 2 ? "bg-orange-500 text-white" : "bg-gray-200 text-gray-600"
                       }`}>
                         2
@@ -232,14 +232,14 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                         className="space-y-6"
                       >
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                          <label className="block text-base font-medium text-gray-700 mb-2">
                             Type de service
                           </label>
                           <select
                             name="serviceType"
                             value={formData.serviceType}
                             onChange={handleChange}
-                            className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors ${
+                            className={`w-full px-4 py-3 text-base border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors ${
                               errors.serviceType ? "border-red-500" : "border-gray-300"
                             }`}
                             required
@@ -253,7 +253,7 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                             <option value="daily">Location à la journée</option>
                           </select>
                           {errors.serviceType && (
-                            <p id="serviceType-error" className="mt-1 text-sm text-red-500">
+                            <p id="serviceType-error" className="mt-2 text-sm text-red-500">
                               {errors.serviceType}
                             </p>
                           )}
@@ -261,7 +261,7 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                            <label className="block text-base font-medium text-gray-700 mb-2">
                               Date
                             </label>
                             <input
@@ -269,7 +269,7 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                               name="date"
                               value={formData.date}
                               onChange={handleChange}
-                              className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors ${
+                              className={`w-full px-4 py-3 text-base border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors ${
                                 errors.date ? "border-red-500" : "border-gray-300"
                               }`}
                               required
@@ -277,13 +277,13 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                               aria-describedby={errors.date ? "date-error" : undefined}
                             />
                             {errors.date && (
-                              <p id="date-error" className="mt-1 text-sm text-red-500">
+                              <p id="date-error" className="mt-2 text-sm text-red-500">
                                 {errors.date}
                               </p>
                             )}
                           </div>
                           <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                            <label className="block text-base font-medium text-gray-700 mb-2">
                               Heure
                             </label>
                             <input
@@ -291,7 +291,7 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                               name="time"
                               value={formData.time}
                               onChange={handleChange}
-                              className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors ${
+                              className={`w-full px-4 py-3 text-base border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors ${
                                 errors.time ? "border-red-500" : "border-gray-300"
                               }`}
                               required
@@ -299,7 +299,7 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                               aria-describedby={errors.time ? "time-error" : undefined}
                             />
                             {errors.time && (
-                              <p id="time-error" className="mt-1 text-sm text-red-500">
+                              <p id="time-error" className="mt-2 text-sm text-red-500">
                                 {errors.time}
                               </p>
                             )}
@@ -307,7 +307,7 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                         </div>
 
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                          <label className="block text-base font-medium text-gray-700 mb-2">
                             Lieu de prise en charge
                           </label>
                           <input
@@ -315,7 +315,7 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                             name="pickup"
                             value={formData.pickup}
                             onChange={handleChange}
-                            className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors ${
+                            className={`w-full px-4 py-3 text-base border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors ${
                               errors.pickup ? "border-red-500" : "border-gray-300"
                             }`}
                             required
@@ -323,14 +323,14 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                             aria-describedby={errors.pickup ? "pickup-error" : undefined}
                           />
                           {errors.pickup && (
-                            <p id="pickup-error" className="mt-1 text-sm text-red-500">
+                            <p id="pickup-error" className="mt-2 text-sm text-red-500">
                               {errors.pickup}
                             </p>
                           )}
                         </div>
 
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                          <label className="block text-base font-medium text-gray-700 mb-2">
                             Destination
                           </label>
                           <input
@@ -338,7 +338,7 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                             name="dropoff"
                             value={formData.dropoff}
                             onChange={handleChange}
-                            className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors ${
+                            className={`w-full px-4 py-3 text-base border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors ${
                               errors.dropoff ? "border-red-500" : "border-gray-300"
                             }`}
                             required
@@ -346,7 +346,7 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                             aria-describedby={errors.dropoff ? "dropoff-error" : undefined}
                           />
                           {errors.dropoff && (
-                            <p id="dropoff-error" className="mt-1 text-sm text-red-500">
+                            <p id="dropoff-error" className="mt-2 text-sm text-red-500">
                               {errors.dropoff}
                             </p>
                           )}
@@ -357,6 +357,7 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                           onClick={handleNext}
                           variant="primary"
                           fullWidth
+                          className="py-3 text-base"
                         >
                           Suivant
                         </Button>
@@ -369,7 +370,7 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                         className="space-y-6"
                       >
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                          <label className="block text-base font-medium text-gray-700 mb-2">
                             Nom complet <span className="text-red-500">*</span>
                           </label>
                           <div className="relative">
@@ -378,7 +379,7 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                               name="name"
                               value={formData.name}
                               onChange={handleChange}
-                              className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors ${
+                              className={`w-full px-4 py-3 text-base border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors ${
                                 errors.name ? "border-red-500" : "border-gray-300"
                               }`}
                               required
@@ -386,18 +387,18 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                               aria-describedby={errors.name ? "name-error" : undefined}
                             />
                             {formData.name && !errors.name && (
-                              <FaCheck className="absolute right-3 top-1/2 transform -translate-y-1/2 text-green-500" />
+                              <FaCheck className="absolute right-4 top-1/2 transform -translate-y-1/2 text-green-500 w-5 h-5" />
                             )}
                           </div>
                           {errors.name && (
-                            <p id="name-error" className="mt-1 text-sm text-red-500">
+                            <p id="name-error" className="mt-2 text-sm text-red-500">
                               {errors.name}
                             </p>
                           )}
                         </div>
 
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                          <label className="block text-base font-medium text-gray-700 mb-2">
                             Téléphone <span className="text-red-500">*</span>
                           </label>
                           <div className="relative">
@@ -406,7 +407,7 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                               name="phone"
                               value={formData.phone}
                               onChange={handleChange}
-                              className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors ${
+                              className={`w-full px-4 py-3 text-base border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors ${
                                 errors.phone ? "border-red-500" : "border-gray-300"
                               }`}
                               required
@@ -414,22 +415,22 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                               aria-describedby={errors.phone ? "phone-error" : undefined}
                             />
                             {formData.phone && !errors.phone && (
-                              <FaCheck className="absolute right-3 top-1/2 transform -translate-y-1/2 text-green-500" />
+                              <FaCheck className="absolute right-4 top-1/2 transform -translate-y-1/2 text-green-500 w-5 h-5" />
                             )}
                           </div>
                           {errors.phone && (
-                            <p id="phone-error" className="mt-1 text-sm text-red-500">
+                            <p id="phone-error" className="mt-2 text-sm text-red-500">
                               {errors.phone}
                             </p>
                           )}
                         </div>
 
                         {/* Récapitulatif et moyens de paiement */}
-                        <div className="bg-gray-50 p-4 rounded-lg space-y-4">
+                        <div className="bg-gray-50 p-5 rounded-lg space-y-5">
                           <h3 className="font-semibold text-lg">Récapitulatif de la réservation</h3>
                           
-                          <div className="space-y-2">
-                            <div className="flex justify-between">
+                          <div className="space-y-3">
+                            <div className="flex justify-between text-base">
                               <span>Service:</span>
                               <span className="font-medium">
                                 {formData.serviceType === "airport-pickup" && "Transfert Aéroport - Ville"}
@@ -438,28 +439,28 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                                 {formData.serviceType === "daily" && "Location à la journée"}
                               </span>
                             </div>
-                            <div className="flex justify-between">
+                            <div className="flex justify-between text-base">
                               <span>Date:</span>
                               <span className="font-medium">{formData.date}</span>
                             </div>
-                            <div className="flex justify-between">
+                            <div className="flex justify-between text-base">
                               <span>Heure:</span>
                               <span className="font-medium">{formData.time}</span>
                             </div>
-                            <div className="flex justify-between">
+                            <div className="flex justify-between text-base">
                               <span>Trajet:</span>
                               <span className="font-medium">{formData.pickup} → {formData.dropoff}</span>
                             </div>
-                            <div className="border-t pt-2 mt-2">
-                              <div className="flex justify-between font-bold">
+                            <div className="border-t pt-3 mt-3">
+                              <div className="flex justify-between font-bold text-lg">
                                 <span>Total:</span>
                                 <span>{calculatePrice().toLocaleString()} FCFA</span>
                               </div>
                             </div>
                           </div>
 
-                          <div className="mt-4">
-                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                          <div className="mt-6">
+                            <label className="block text-base font-medium text-gray-700 mb-3">
                               Moyen de paiement <span className="text-red-500">*</span>
                             </label>
                             <div className="grid grid-cols-2 gap-3">
@@ -468,7 +469,7 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                                   key={method}
                                   type="button"
                                   onClick={() => setPaymentMethod(method)}
-                                  className={`p-3 border rounded-lg text-center transition-colors ${
+                                  className={`p-3 text-base border rounded-lg text-center transition-colors ${
                                     paymentMethod === method
                                       ? "border-orange-500 bg-orange-50 text-orange-700"
                                       : "border-gray-300 hover:border-orange-500"
@@ -479,7 +480,7 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                               ))}
                             </div>
                             {errors.paymentMethod && (
-                              <p className="mt-1 text-sm text-red-500">
+                              <p className="mt-2 text-sm text-red-500">
                                 {errors.paymentMethod}
                               </p>
                             )}
@@ -492,6 +493,7 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                             onClick={() => setStep(1)}
                             variant="secondary"
                             fullWidth
+                            className="py-3 text-base"
                           >
                             Retour
                           </Button>
@@ -499,6 +501,7 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                             type="submit"
                             variant="primary"
                             fullWidth
+                            className="py-3 text-base"
                           >
                             Confirmer la réservation
                           </Button>
@@ -511,21 +514,21 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                 <motion.div
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  className="flex flex-col items-center justify-center py-8 text-center"
+                  className="flex flex-col items-center justify-center py-10 text-center"
                 >
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.2, type: "spring" }}
-                    className="mb-6"
+                    className="mb-8"
                   >
-                    <FaCheckCircle className="w-16 h-16 text-green-500" />
+                    <FaCheckCircle className="w-20 h-20 text-green-500" />
                   </motion.div>
                   <motion.h3
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.3 }}
-                    className="text-2xl font-bold text-gray-900 mb-2"
+                    className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4"
                   >
                     Réservation confirmée !
                   </motion.h3>
@@ -533,7 +536,7 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.4 }}
-                    className="text-gray-600 mb-6"
+                    className="text-base sm:text-lg text-gray-600 mb-8"
                   >
                     Nous vous contacterons dans les plus brefs délais pour confirmer votre trajet.
                   </motion.p>
@@ -541,30 +544,31 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.5 }}
-                    className="text-sm text-gray-500 mb-8"
+                    className="text-base text-gray-500 mb-10"
                   >
                     <p>Numéro de réservation: {reservationNumber}</p>
-                    <p className="mt-1">Conservez ce numéro pour toute référence future.</p>
+                    <p className="mt-2">Conservez ce numéro pour toute référence future.</p>
                   </motion.div>
                   <motion.div
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.6 }}
-                    className="flex gap-4"
+                    className="flex flex-col sm:flex-row gap-4 w-full"
                   >
                     <Button
                       type="button"
                       onClick={generatePDF}
                       variant="secondary"
-                      className="flex items-center gap-2"
+                      className="flex items-center justify-center gap-2 py-3 text-base"
                     >
-                      <FaDownload className="w-4 h-4" />
+                      <FaDownload className="w-5 h-5" />
                       Télécharger PDF
                     </Button>
                     <Button
                       type="button"
                       onClick={handleClose}
                       variant="primary"
+                      className="py-3 text-base"
                     >
                       Fermer
                     </Button>

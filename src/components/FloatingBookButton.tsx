@@ -14,8 +14,8 @@ const FloatingBookButton = ({ onClick }: FloatingBookButtonProps) => {
       className="fixed bottom-6 right-6 shadow-lg z-40"
       aria-label="Réserver maintenant"
     >
-      <FaCalendarAlt className="w-5 h-5 mr-2" />
-      <span>Réserver</span>
+      <FaCalendarAlt className="w-5 h-5 md:mr-2" />
+      <span className="hidden md:inline">Réserver</span>
     </Button>
   );
 };
